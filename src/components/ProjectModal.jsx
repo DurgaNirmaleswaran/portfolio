@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
@@ -126,29 +126,49 @@ function ProjectContextBox({ project }) {
 }
 
 export default function ProjectModal({ project, onClose }) {
-  useEffect(() => {
-    if (!project) return;
+useLayoutEffect(() => {
+  if (!project) return;
 
-    const scrollY = window.scrollY;
+  const scrollY = window.scrollY;
+  const body = document.body;
+  const html = document.documentElement;
 
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.left = "0";
-    document.body.style.right = "0";
-    document.body.style.width = "100%";
-    document.body.style.overflow = "hidden";
+  const previousBodyPosition = body.style.position;
+  const previousBodyTop = body.style.top;
+  const previousBodyLeft = body.style.left;
+  const previousBodyRight = body.style.right;
+  const previousBodyWidth = body.style.width;
+  const previousBodyOverflow = body.style.overflow;
+  const previousHtmlScrollBehavior = html.style.scrollBehavior;
 
-    return () => {
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.width = "";
-      document.body.style.overflow = "";
+  html.style.scrollBehavior = "auto";
 
-      window.scrollTo(0, scrollY);
-    };
-  }, [project]);
+  body.style.position = "fixed";
+  body.style.top = `-${scrollY}px`;
+  body.style.left = "0";
+  body.style.right = "0";
+  body.style.width = "100%";
+  body.style.overflow = "hidden";
+
+  return () => {
+    body.style.position = previousBodyPosition;
+    body.style.top = previousBodyTop;
+    body.style.left = previousBodyLeft;
+    body.style.right = previousBodyRight;
+    body.style.width = previousBodyWidth;
+    body.style.overflow = previousBodyOverflow;
+
+    window.scrollTo({
+      top: scrollY,
+      left: 0,
+      behavior: "auto",
+    });
+
+    requestAnimationFrame(() => {
+      html.style.scrollBehavior = previousHtmlScrollBehavior;
+    });
+  };
+}, [project]);
 
   return (
     <AnimatePresence>
