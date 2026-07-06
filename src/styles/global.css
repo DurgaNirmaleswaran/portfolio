@@ -14532,6 +14532,7 @@ section {
   background-position: right 14px center;
   padding-right: 36px;
 }
+
 .project-modal-backdrop {
   position: fixed !important;
   inset: 0 !important;
@@ -14543,4 +14544,400 @@ section {
 .project-modal {
   overflow: visible !important;
   overscroll-behavior: contain !important;
+}
+/* Fix ML benchmark visual table alignment */
+
+.ml-table,
+.benchmark-table,
+.mlbench-table {
+  width: 100% !important;
+}
+
+.ml-table-row,
+.benchmark-table-row,
+.mlbench-table-row,
+.ml-table-head,
+.benchmark-table-head,
+.mlbench-table-head {
+  display: grid !important;
+  grid-template-columns: 1.05fr 1.15fr 0.85fr !important;
+  align-items: center !important;
+  column-gap: 18px !important;
+}
+
+.ml-table-row > *:nth-child(1),
+.benchmark-table-row > *:nth-child(1),
+.mlbench-table-row > *:nth-child(1),
+.ml-table-head > *:nth-child(1),
+.benchmark-table-head > *:nth-child(1),
+.mlbench-table-head > *:nth-child(1) {
+  text-align: left !important;
+}
+
+.ml-table-row > *:nth-child(2),
+.benchmark-table-row > *:nth-child(2),
+.mlbench-table-row > *:nth-child(2),
+.ml-table-head > *:nth-child(2),
+.benchmark-table-head > *:nth-child(2),
+.mlbench-table-head > *:nth-child(2) {
+  text-align: left !important;
+}
+
+.ml-table-row > *:nth-child(3),
+.benchmark-table-row > *:nth-child(3),
+.mlbench-table-row > *:nth-child(3),
+.ml-table-head > *:nth-child(3),
+.benchmark-table-head > *:nth-child(3),
+.mlbench-table-head > *:nth-child(3) {
+  text-align: right !important;
+  justify-self: end !important;
+  white-space: nowrap !important;
+}
+
+/* ML benchmark visual — clean table alignment */
+
+.mlbench-matrix {
+  width: 100% !important;
+  padding: 16px 20px !important;
+  border-radius: 22px !important;
+}
+
+.mlbench-matrix-head,
+.mlbench-matrix-row {
+  display: grid !important;
+  grid-template-columns: minmax(120px, 1fr) minmax(160px, 1.15fr) minmax(110px, 0.75fr) !important;
+  align-items: center !important;
+  column-gap: 20px !important;
+}
+
+.mlbench-matrix-head {
+  padding: 0 0 12px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075) !important;
+}
+
+.mlbench-matrix-row {
+  padding: 12px 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+.mlbench-matrix-row:last-child {
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.mlbench-matrix-head span {
+  color: #9cecff !important;
+  font-size: 0.68rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+}
+
+.mlbench-matrix-head span:nth-child(1),
+.mlbench-matrix-row span {
+  text-align: left !important;
+  justify-self: start !important;
+}
+
+.mlbench-matrix-head span:nth-child(2),
+.mlbench-matrix-row strong {
+  text-align: left !important;
+  justify-self: start !important;
+}
+
+.mlbench-matrix-head span:nth-child(3),
+.mlbench-matrix-row em {
+  text-align: right !important;
+  justify-self: end !important;
+}
+
+.mlbench-matrix-row span {
+  color: rgba(221, 227, 238, 0.82) !important;
+}
+
+.mlbench-matrix-row strong {
+  color: rgba(245, 247, 251, 0.92) !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+}
+
+.mlbench-matrix-row em {
+  color: #9cecff !important;
+  font-style: normal !important;
+  font-weight: 750 !important;
+  white-space: nowrap !important;
+}
+@media (max-width: 520px) {
+  .mlbench-matrix {
+    padding: 14px 16px !important;
+  }
+
+  .mlbench-matrix-head,
+  .mlbench-matrix-row {
+    grid-template-columns: 0.9fr 1.05fr 0.8fr !important;
+    column-gap: 12px !important;
+  }
+
+  .mlbench-matrix-head span {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.16em !important;
+  }
+
+  .mlbench-matrix-row span,
+  .mlbench-matrix-row strong,
+  .mlbench-matrix-row em {
+    font-size: 0.78rem !important;
+  }
+
+}
+
+/* ML benchmark visual — keep fonts small, fix alignment/spacing only */
+
+.mlbench-matrix {
+  margin-top: 16px !important;
+  padding: 14px 18px !important;
+  border-radius: 22px !important;
+}
+
+.mlbench-matrix-head,
+.mlbench-matrix-row {
+  display: grid !important;
+  grid-template-columns: 1fr 1.2fr 0.8fr !important;
+  align-items: center !important;
+  column-gap: 16px !important;
+}
+
+.mlbench-matrix-head {
+  padding-bottom: 8px !important;
+}
+
+.mlbench-matrix-row {
+  padding: 8px 0 !important;
+}
+
+.mlbench-matrix-head span {
+  font-size: 0.58rem !important;
+  letter-spacing: 0.18em !important;
+}
+
+.mlbench-matrix-row span,
+.mlbench-matrix-row strong,
+.mlbench-matrix-row em {
+  font-size: 0.82rem !important;
+  line-height: 1.25 !important;
+}
+
+.mlbench-matrix-row strong {
+  font-weight: 750 !important;
+  white-space: nowrap !important;
+}
+
+.mlbench-matrix-row em {
+  justify-self: end !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+  font-style: normal !important;
+}
+
+.mlbench-matrix-head span:nth-child(1),
+.mlbench-matrix-row span {
+  justify-self: start !important;
+  text-align: left !important;
+}
+
+.mlbench-matrix-head span:nth-child(2),
+.mlbench-matrix-row strong {
+  justify-self: start !important;
+  text-align: left !important;
+}
+
+.mlbench-matrix-head span:nth-child(3) {
+  justify-self: end !important;
+  text-align: right !important;
+}
+/* Project card arrow-only clickable cue */
+
+.project-card-arrow {
+  position: absolute !important;
+  top: 22px !important;
+  right: 22px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 46px !important;
+  height: 46px !important;
+  border-radius: 999px !important;
+
+  color: rgba(245, 247, 251, 0.82) !important;
+
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.13), transparent 32%),
+    linear-gradient(135deg, rgba(156, 236, 255, 0.11), rgba(126, 109, 255, 0.08)),
+    rgba(255, 255, 255, 0.055) !important;
+
+  border: 1px solid rgba(156, 236, 255, 0.18) !important;
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+
+  backdrop-filter: blur(14px) !important;
+
+  cursor: pointer !important;
+
+  transition:
+    transform 0.18s ease,
+    color 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease !important;
+}
+
+.project-card-arrow svg {
+  width: 18px !important;
+  height: 18px !important;
+  transition: transform 0.18s ease !important;
+}
+
+/* subtle clickable ring */
+.project-card-arrow::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: inherit;
+  border: 1px solid rgba(156, 236, 255, 0.13);
+  opacity: 0;
+  transform: scale(0.86);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+/* hover on whole card triggers arrow */
+.project-title-card:hover .project-card-arrow {
+  color: #05070d !important;
+  background: #9cecff !important;
+  border-color: rgba(156, 236, 255, 0.8) !important;
+  transform: translateY(-2px) scale(1.04) !important;
+  box-shadow:
+    0 16px 36px rgba(156, 236, 255, 0.2),
+    0 0 0 6px rgba(156, 236, 255, 0.055) !important;
+}
+
+.project-title-card:hover .project-card-arrow svg {
+  transform: translate(2px, -2px) !important;
+}
+
+.project-title-card:hover .project-card-arrow::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* make whole card feel clickable */
+.project-title-card {
+  cursor: pointer !important;
+}
+
+.project-title-card:hover {
+  border-color: rgba(156, 236, 255, 0.18) !important;
+}
+
+/* Make project arrow feel clickable without adding text */
+
+.project-card-arrow {
+  position: absolute !important;
+  top: 22px !important;
+  right: 22px !important;
+
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 999px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  color: rgba(245, 247, 251, 0.78) !important;
+
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.12), transparent 34%),
+    rgba(255, 255, 255, 0.055) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+
+  backdrop-filter: blur(14px) !important;
+  cursor: pointer !important;
+
+  transition:
+    transform 0.18s ease,
+    color 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease !important;
+}
+
+.project-card-arrow svg {
+  transition: transform 0.18s ease !important;
+}
+
+/* When card is hovered, arrow clearly reacts */
+.project-title-card:hover .project-card-arrow {
+  color: #05070d !important;
+
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.7), transparent 34%),
+    #9cecff !important;
+
+  border-color: rgba(156, 236, 255, 0.75) !important;
+
+  transform: translateY(-2px) scale(1.04) !important;
+
+  box-shadow:
+    0 0 0 4px rgba(156, 236, 255, 0.08),
+    0 16px 34px rgba(156, 236, 255, 0.18) !important;
+}
+
+.project-title-card:hover .project-card-arrow svg {
+  transform: translate(2px, -2px) !important;
+}
+
+/* Click feedback */
+.project-title-card:active .project-card-arrow {
+  transform: scale(0.96) !important;
+}
+
+/* Make the whole card also signal clickability */
+.project-title-card {
+  cursor: pointer !important;
+}
+
+.project-title-card:hover {
+  border-color: rgba(156, 236, 255, 0.2) !important;
+}
+
+/* Make project card arrow cyan */
+
+.project-open-button {
+  color: #9cecff !important;
+  border-color: rgba(156, 236, 255, 0.28) !important;
+}
+
+.project-open-button svg {
+  color: #9cecff !important;
+  stroke: #9cecff !important;
+}
+
+.project-title-card:hover .project-open-button {
+  color: #9cecff !important;
+  border-color: rgba(156, 236, 255, 0.45) !important;
+  background: rgba(156, 236, 255, 0.08) !important;
+}
+
+.project-title-card:hover .project-open-button svg {
+  stroke: #9cecff !important;
+  transform: translate(2px, -2px);
 }
