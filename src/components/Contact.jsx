@@ -74,7 +74,7 @@ export default function Contact() {
 
             <span>
               <span className="contact-meta-icon">⌖</span>
-              <span>Union City, NJ</span>
+              <span>NYC Area</span>
             </span>
 
             <a
